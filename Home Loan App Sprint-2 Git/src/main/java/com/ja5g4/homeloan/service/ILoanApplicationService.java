@@ -11,6 +11,21 @@ import com.ja5g4.homeloan.exception.LandVerificationException;
 import com.ja5g4.homeloan.exception.InvalidLoanAgreementException;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
 
+
+/* Loan Application Service
+ * ILoanApplicationService implements LoanApplicationService interface
+ * LoanApplication addLoanApplication(LoanApplication loanApplication) to add new loan application
+ * LoanApplication updateLoanApplication(LoanApplication loanApplication) throws InvalidLoanApplicationException to update the loan application
+ * LoanApplication deleteLoanApplication(long loanApplicationId) throws InvalidLoanApplicationException to delete the loan application
+ * List<LoanApplication> getAllLoanApplication() to get all the loan applications
+ * LoanApplication updateLandStatus(int loanApplicationId) throws LandVerificationException,InvalidLoanApplicationException if not found
+ * LoanApplication updateFinanceStatus(int loanApplicationId) throws FinanceVerificationException, InvalidLoanApplicationException if not found
+ * LoanApplication updateAdminStatus(int loanApplicationId) throws AdminApprovalException, InvalidLoanApplicationException if not found
+ * LoanAgreement getLoanAgreement(int loanApplicationId)throws InvalidLoanAgreementException if not found
+ * 
+ * Author : Ashwin
+ * */
+
 public interface ILoanApplicationService  {
 	
 	public LoanApplication addLoanApplication(int userId, double loanAppliedAmount,int loanTenureYears) throws CustomerNotFoundException;

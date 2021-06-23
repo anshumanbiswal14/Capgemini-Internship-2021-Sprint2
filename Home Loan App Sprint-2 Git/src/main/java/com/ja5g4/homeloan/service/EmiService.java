@@ -1,6 +1,7 @@
 package com.ja5g4.homeloan.service;
 
-import java.time.LocalDate;  
+import java.time.LocalDate;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,8 +9,16 @@ import org.springframework.stereotype.Service;
 import com.ja5g4.homeloan.entities.EMI;
 import com.ja5g4.homeloan.repository.IEmiRepository;
 
+
+ /* EmiService 
+ * EMI addEmiDetails(double loanAppliedAmount,double intrestRate,int tenure) to add new EmiDetails to table
+ * EMI calculateEmi(double principal,double intrestRate,int tenure) to calculate Emi
+ * 
+ * Author : Anshuman Biswal
+ * */
 @Service
 public class EmiService implements IEmiService {
+	Logger logger = Logger.getLogger(EmiService.class.getName());
 	@Autowired
 	IEmiRepository emiRepository;
 	

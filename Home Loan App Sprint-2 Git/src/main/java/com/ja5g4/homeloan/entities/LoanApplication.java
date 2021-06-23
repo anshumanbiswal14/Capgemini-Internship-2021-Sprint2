@@ -9,32 +9,64 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.FutureOrPresent;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @Table(name = "loan_application")
 public class LoanApplication {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(name = "Loan application ID", value = "It holds the loan application ID", required = true)
 	private int applicationId;
+	
 	@Column
+	@ApiModelProperty(name = "Loan application date", value = "It holds the loan application date", required = true)
+	@FutureOrPresent
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private LocalDate applicationDate;  
+	
 	@OneToOne
+	@JoinColumn(name = "user_Info", referencedColumnName = "userId")
+	@ApiModelProperty(name = "Customer", value = "It holds the customer information", required = true)
 	private Customer customer;
+	
 	@Column
+	@ApiModelProperty(name = "Loan applied amount", value = "It holds the loan applied amount", required = true)
+	@DecimalMin(value = "0", message = "Loan applied amount should not be less than thousand values")
 	private double loanAppliedAmount;
+	
 	@Column
+	@ApiModelProperty(name = "Loan Tenure Years", value = "It holds the loan tenure years", required = true)
 	private int loanTenureYears;
+	
 	@Column
+	@ApiModelProperty(name = "Loan approved amount", value = "It holds the loan approved amount", required = true)
+	@DecimalMin(value = "0", message = "Loan approved amount should not be less than thousand values")
 	private double loanApprovedAmount;
+	
 	@Column
+	@ApiModelProperty(name = "Land verification approval status", value = "It holds the land verification approval status", required = true)
 	private boolean landVerificationApproval;
+	
 	@Column
+	@ApiModelProperty(name = "Finance verification approval status", value = "It holds the finance verification approval status", required = true)
 	private boolean financeVerificationApproval;
+	
 	@Column
+	@ApiModelProperty(name = "Admin approval status", value = "It holds the admin approval status", required = true)
 	private boolean adminApproval;
+	
 	@Column
+	@ApiModelProperty(name = "Status", value = "It holds the status", required = true)
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
