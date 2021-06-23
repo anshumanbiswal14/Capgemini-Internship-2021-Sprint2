@@ -13,8 +13,8 @@ Application will be developed in following Sprints :-
 
 Project Submitted By :-
 
-# JA - 16 Anshuman Biswal      anshumanbiswal14@gmail.com         G4   Home Loan App
-# JA - 16 Ashwin Sp            ashwinsanthosh27@gmail.com         G4   Home Loan App
-# JA - 16 Bharath Surya J      bharathsurya1@gmail.com            G4   Home Loan App
-# JA - 16 Blesy Helen V        blesyhelen996@gmail.com            G4   Home Loan App
-# JA - 16 Gaurav Shrivastava   gauravdb34@gmail.com               G4   Home Loan App
+1. JA - 16 Anshuman Biswal      anshumanbiswal14@gmail.com         G4   Home Loan App
+2. JA - 16 Ashwin Sp            ashwinsanthosh27@gmail.com         G4   Home Loan App
+3. JA - 16 Bharath Surya J      bharathsurya1@gmail.com            G4   Home Loan App
+4. JA - 16 Blesy Helen V        blesyhelen996@gmail.com            G4   Home Loan App
+5. JA - 16 Gaurav Shrivastava   gauravdb34@gmail.com               G4   Home Loan App
