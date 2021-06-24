@@ -1,12 +1,19 @@
 package com.ja5g4.homeloan.service;
 
-import java.time.LocalDate;  
+import java.time.LocalDate;   
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ja5g4.homeloan.entities.EMI;
 import com.ja5g4.homeloan.repository.IEmiRepository;
+
+/* EmiService 
+ * EMI addEmiDetails(double loanAppliedAmount,double intrestRate,int tenure) to add new EmiDetails to table
+ * EMI calculateEmi(double principal,double intrestRate,int tenure) to calculate Emi
+ * 
+ * Author : Bharath Surya
+ * */
 
 @Service
 public class EmiService implements IEmiService {
@@ -41,3 +48,4 @@ public class EmiService implements IEmiService {
 		return (principal * intrestRate * Math.pow(1 + intrestRate, tenure)) / (Math.pow(1 + intrestRate, tenure) - 1);
 	}
 }
+// By Bharath Surya

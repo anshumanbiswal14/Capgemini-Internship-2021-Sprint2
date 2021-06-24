@@ -5,25 +5,72 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity
+@ApiModel(value = "Customer Bean Class")
 @Table(name = "customer")
 public class Customer extends User{
 	
 	@Column
+	@ApiModelProperty(name = "Customer Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
+	@NotEmpty(message = "Customer Name can't be empty!")
+	@Size(min = 3, max = 25, message = "Invalid Customer Name please enter a vaild Customer Name!")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "Accepts only alphabets! re-enter the name")
 	private String customerName;
+	
+	@ApiModelProperty(name = "Mobile Number", value = "It holds customer's phone number", required = true)
+	@NotEmpty(message = "Phone Number can't be empty!")
+	@Size(min = 10, max = 10, message = "Invalid Phone Number please enter a vaild phone number of minimum 10 digits")
+	@Pattern(regexp = "^\\d{10}$", message = "Invalid input:Enter numbers only")
 	@Column
 	private String mobileNumber;
+	
+	@ApiModelProperty(name = "Customer Email ID", value = "holding customer email ID", required = true)
+	@NotEmpty(message = "Email ID can't be empty!")
+	@Size(min = 2, max = 30, message = "Invalid Email ID please enter a vaild email ID")
+	@Email(message = "Not the proper Email ID format! enter again")
 	@Column
 	private String emailId;
+	
+	@ApiModelProperty(name = "Customer DOB", value = "holding customer DOB", required = true)
+	@JsonFormat(pattern = "yyy-MM-dd")
+	@Past
 	@Column
 	private LocalDate dateOfBirth;
+	
+	@ApiModelProperty(name = "Customer Gender", value = "holding customer gender", required = true)
+	@NotEmpty(message = "Gender can't be empty!")
+	@Size(min = 4, max = 6, message = "Please enter Male/Female/Others")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "Accepts only alphabets! re-enter the gender")
 	@Column
 	private String gender;
+	
+	@ApiModelProperty(name = "Customer Nationality", value = "holding customer country of origin", required = true)
+	@NotEmpty(message = "Nationality can't be empty!")
+	@Size(min = 2, max = 15, message = "Please enter proper nationality")
+	@Pattern(regexp = "^[a-zA-Z]*$", message = "Accepts only alphabets! re-enter the nationality")
 	@Column
 	private String nationality;
+	
+	@ApiModelProperty(name = "Customer Aadhar Card number", value = "holding customer Aadhar Card number", required = true)
+	@NotEmpty(message = "Aadhar Card number can't be empty!")
+	@Size(min = 12, max = 12, message = "Please enter 12 digit AADHAR!")
 	@Column
 	private String aadharNumber;
+	
+	@ApiModelProperty(name = "Customer PAN ", value = "holding customer PAN Card Number", required = true)
+	@NotEmpty(message = "PAN card number can't be empty!")
+	@Size(min = 10, max = 10, message = "Please enter 10 digit PAN!")
 	@Column
 	private String panNumber;
 
@@ -120,4 +167,4 @@ public class Customer extends User{
 
 	
 }
-
+// By Anshuman Biswal

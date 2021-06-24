@@ -1,11 +1,18 @@
 package com.ja5g4.homeloan.service;
 
-import org.springframework.beans.factory.annotation.Autowired;  
+import org.springframework.beans.factory.annotation.Autowired;   
 import org.springframework.stereotype.Service;
 
 import com.ja5g4.homeloan.entities.LandVerificationOfficer;
 import com.ja5g4.homeloan.repository.ILandVerificationRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
+
+/*Land Verification Officer Service
+ *ILandVerificationService checks for the existing of loan application and updates the status and 
+ *ILandVerificationService isValidLandOfficer(String username, String password) validate LandVerificationOfficer
+ *ILandVerificationService addLandOfficer(LandVerificationOfficer officer) add LandVerificationOfficer
+ * Author : Gaurav Shrivastava 
+ * */
 
 @Service
 public class LandVerificationService implements ILandVerificationService {
@@ -34,3 +41,4 @@ public class LandVerificationService implements ILandVerificationService {
 		return iLandVerificationRepository.findByUsernameAndPassword(userName, password)!=null;
 	}
 }
+//By Gaurav Shrivastava 

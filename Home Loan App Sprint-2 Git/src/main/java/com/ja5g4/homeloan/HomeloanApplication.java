@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan;
 
-import java.util.logging.Level; 
+import java.util.logging.Level;  
 import java.util.logging.Logger;
 
 import org.springframework.boot.SpringApplication;
@@ -14,12 +14,19 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/* Home Loan Application Version 1.0 using Spring Boot and Angular JS
+ * @Author 1 : Anshuman Biswal
+ * @Author 2 : Gaurav Shrivastava 
+ * @Author 3 : Bharath Surya
+ * @Author 4 : Blesy Helen
+ * @Author 5 : Ashwin SP
+ * */
+
 @EnableSwagger2
 @Configuration
 @SpringBootApplication
 public class HomeloanApplication {
 	
-
 	public static void main(String[] args) {
 		Logger logger = Logger.getLogger(HomeloanApplication.class.getName());
 		SpringApplication.run(HomeloanApplication.class, args);

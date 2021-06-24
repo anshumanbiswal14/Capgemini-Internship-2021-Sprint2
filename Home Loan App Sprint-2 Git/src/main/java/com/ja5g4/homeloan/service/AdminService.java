@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.service;
 
-import java.util.List; 
+import java.util.List;  
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,15 @@ import org.springframework.stereotype.Service;
 import com.ja5g4.homeloan.entities.Admin;
 import com.ja5g4.homeloan.repository.IAdminRepository;
 import com.ja5g4.homeloan.repository.ILoanApplicationRepository;
+
+/* Admin Service 
+ * AdminService implements IAdminService 
+ * Admin addAdmin(Admin Admin) to add new user as admin.
+ * Admin getAllAdmin to get the list of all admins.
+ * isValidAdmin to check whether admin exist in the database or not.
+ 
+ * Author : Blesy Helen
+ */
 
 @Service
 public class AdminService implements IAdminService {
@@ -48,3 +57,4 @@ public class AdminService implements IAdminService {
 	}
 	
 }
+// By Blesy Helen

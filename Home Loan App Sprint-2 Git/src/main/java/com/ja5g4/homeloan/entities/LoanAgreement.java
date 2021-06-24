@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.entities;
 
-import javax.persistence.Column;
+import javax.persistence.Column; 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,18 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "loan_agreement")
+@ApiModel(value = "Loan Agreement Bean Class")
 public class LoanAgreement {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(name = "Loan Agreement ID", value = "It holds the loan agreement ID", required = true)
 	private int loanAgreementId;
 
+	@ApiModelProperty(name = "Loan Application ID", value = "It holds the loan application ID", required = true)
 	@Column
 	private int loanApplicationId;
 
 	@OneToOne
+	@ApiModelProperty(name = "EMIs for Loan Agreement", value = "It holds all EMIs linked to Loan Agreement", required = true)
 	private EMI emi;
 
 	public LoanAgreement() {
@@ -70,3 +77,4 @@ public class LoanAgreement {
 	}
 
 }
+// By Bharath Surya
