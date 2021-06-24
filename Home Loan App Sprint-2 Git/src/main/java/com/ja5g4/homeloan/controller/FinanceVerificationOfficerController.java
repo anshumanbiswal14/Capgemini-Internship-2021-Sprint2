@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.ja5g4.homeloan.entities.Admin;
+import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.FinanceVerificationException;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;
@@ -59,6 +62,8 @@ public class FinanceVerificationOfficerController {
 		return new ResponseEntity<>(loanApplicationService.updateFinanceStatus(loanApplicationId), HttpStatus.OK);
 
 	}
+	
+
 	
 	@ApiOperation(value="GET mapping for the Finance Verification to update the status of application",response=Boolean.class)
 	@GetMapping("/validatingfinanceofficer/{username}/{password}")

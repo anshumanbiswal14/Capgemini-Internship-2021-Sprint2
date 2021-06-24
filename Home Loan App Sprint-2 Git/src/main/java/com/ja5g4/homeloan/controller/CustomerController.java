@@ -91,9 +91,9 @@ public class CustomerController {
 	}
 	
 	@ApiOperation(value = "PUT mapping to add new customers to the LOAN_USER table in the Database", response = Customer.class)
-	@PutMapping("/updatecustomer/{userId}")
-	public ResponseEntity<Customer> updateCustomer(@PathVariable int userId, @RequestBody @Valid Customer customer) throws CustomerNotFoundException {
-		return new ResponseEntity<>(customerService.updateCustomer(userId,customer),HttpStatus.OK);
+	@PutMapping("/updatecustomer")
+	public ResponseEntity<Customer> updateCustomer(@RequestBody @Valid Customer customer) throws CustomerNotFoundException {
+		return new ResponseEntity<>(customerService.updateCustomer(customer),HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "POST mapping to add new customers to the LOAN_USER table in the Database", response = Customer.class)

@@ -1,7 +1,7 @@
 package com.ja5g4.homeloan.service;
 
-import java.util.List; 
-
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,9 +57,16 @@ public class CustomerService implements ICustomerService {
 	
 	// updating a specific record by using specific userId of the customer
 	@Override
-	public Customer updateCustomer(int userId,Customer customer) throws CustomerNotFoundException {
-		iCustomerRepository.findById(userId).orElseThrow(()->new CustomerNotFoundException("Customer detail not found !!!"));
-		return iCustomerRepository.save(customer);
+	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException {
+		
+		Optional<Customer> optional = iCustomerRepository.findById(customer.getUserId());
+		if (optional.isPresent()) {
+			iCustomerRepository.save(customer);
+			return optional.get();
+		} else {
+			throw new CustomerNotFoundException("Customer couldn't be Updated! ");
+		}
+
 	}
 	
 	// remove a specific customer but using specific userId of the customer

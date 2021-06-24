@@ -163,31 +163,31 @@ public class LoanApplicationService implements ILoanApplicationService {
 			throw new AdminApprovalException("Waiting for Officers Approval !!! ");
 	}
 
-	@Override
-	public List<Customer> viewCustomerApplicationList(LocalDate dateOfApplication) {
-		List<Customer> customerList = new ArrayList<>();
-		List<LoanAgreement> allAgreement = null;
-		try {
-			allAgreement = agreementRepository.findAll();
-			for (LoanAgreement la : allAgreement) {
-				int agreementId = la.getLoanApplicationId();
-
-				Optional<LoanApplication> optional = applicationRepository.findById(agreementId);
-
-				if (optional.isPresent() && optional.get().getApplicationDate().equals(dateOfApplication)) {
-
-					customerList.add(optional.get().getCustomer());
-
-				}
-
-			}
-
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-		}
-
-		return customerList;
-	}
+//	@Override
+//	public List<Customer> viewCustomerApplicationList(LocalDate dateOfApplication) {
+//		List<Customer> customerList = new ArrayList<>();
+//		List<LoanAgreement> allAgreement = null;
+//		try {
+//			allAgreement = agreementRepository.findAll();
+//			for (LoanAgreement la : allAgreement) {
+//				int agreementId = la.getLoanApplicationId();
+//
+//				Optional<LoanApplication> optional = applicationRepository.findById(agreementId);
+//
+//				if (optional.isPresent() && optional.get().getApplicationDate().equals(dateOfApplication)) {
+//
+//					customerList.add(optional.get().getCustomer());
+//
+//				}
+//
+//			}
+//
+//		} catch (Exception e) {
+//			logger.info(e.getMessage());
+//		}
+//
+//		return customerList;
+//	}
 
 }
 //By Ashwin

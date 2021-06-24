@@ -27,7 +27,7 @@ public class LandVerificationOfficer extends User {
 	@NotEmpty(message = "Phone Number can't be empty!")
 	@Size(min = 10, max = 10, message = "Invalid Phone Number please enter a vaild phone number of minimum 10 digits")
 	@Pattern(regexp = "^\\d{10}$", message = "Invalid input:Enter numbers only")
-	@Column
+	@Column(unique=true)
 	private String officerContact;
 
 	public LandVerificationOfficer() {

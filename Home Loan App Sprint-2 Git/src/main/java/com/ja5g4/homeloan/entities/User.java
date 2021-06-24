@@ -28,14 +28,14 @@ public class User {
 	
 	@ApiModelProperty(name = "User Name", value = "It holds only alphabets and accepts minimum 3 Chars", required = true)
 	@NotEmpty(message = "User Name can't be empty!")
-	@Size(min = 3, max = 25, message = "Invalid Admin Name please enter a vaild Admin Name!")
-	@Pattern(regexp = "^[a-zA-Z]*$", message = "Accepts only alphabets! re-enter the admin name")
+	@Column(unique = true)
+	@Size(min = 3, max = 25, message = "Invalid User Name please enter a vaild User Name!")
 	private String username;
 	
 	@ApiModelProperty(name = "Password", value = "It holds only alphabets and accepts maximun 6 Chars", required = true)
 	@NotEmpty(message = "Password can't be empty!")
 	@Size(min = 8, max = 20, message = "Password has to be of minimum 8 chars!")
-	@Column(unique = true)
+	@Column
 	private String password;
 	
 

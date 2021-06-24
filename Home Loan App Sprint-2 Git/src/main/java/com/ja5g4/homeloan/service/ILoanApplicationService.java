@@ -40,7 +40,7 @@ public interface ILoanApplicationService  {
 	public LoanApplication updateFinanceStatus(int loanApplicationId) throws FinanceVerificationException, InvalidLoanApplicationException;
 	public LoanApplication updateAdminStatus(int loanApplicationId) throws AdminApprovalException, InvalidLoanApplicationException;
 	public LoanAgreement getLoanAgreement(int loanApplicationId)throws InvalidLoanAgreementException;
-	public List<Customer> viewCustomerApplicationList(LocalDate dateOfApplication);
+//	public List<Customer> viewCustomerApplicationList(LocalDate dateOfApplication);
 
 }
 // By Ashwin

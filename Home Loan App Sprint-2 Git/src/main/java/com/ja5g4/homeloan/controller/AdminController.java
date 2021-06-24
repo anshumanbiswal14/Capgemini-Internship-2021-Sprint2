@@ -36,6 +36,7 @@ import com.ja5g4.homeloan.service.IAdminService;
 import com.ja5g4.homeloan.service.IFinanceVerificationService;
 import com.ja5g4.homeloan.service.ILandVerificationService;
 import com.ja5g4.homeloan.service.ILoanApplicationService;
+import com.ja5g4.homeloan.service.LandVerificationService;
 import com.ja5g4.homeloan.service.LoanAgreementService;
 
 import io.swagger.annotations.ApiModel;
@@ -121,6 +122,12 @@ public class AdminController {
 	}
 	
 	@ApiOperation(value = "GET mapping to add new user as admin to the LOAN_USER table in the Database", response = List.class)
+	@GetMapping("/viewalllandofficers")
+	public ResponseEntity<List<LandVerificationOfficer>> viewAllLandOfficer() {
+		return new ResponseEntity<>(landVerificationService.getAllLandOfficer(), HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "GET mapping to add new user as admin to the LOAN_USER table in the Database", response = List.class)
 	@GetMapping("/viewallcustomers")
 	public ResponseEntity<List<Customer>> viewAllCustomers(){
 		return new ResponseEntity<>(customerService.getAllCustomers(),HttpStatus.OK);
@@ -146,7 +153,7 @@ public class AdminController {
 	}
 	
 	@ApiOperation(value = "PUT mapping to add new user as admin to the LOAN_USER table in the Database", response = Admin.class)
-	@PutMapping("/updateloanapplication")
+	@PutMapping("/updateloanapplication/{loanApplicationId}")
 	public ResponseEntity<LoanApplication> updateLoanApplication(@PathVariable int loanApplicationId, @RequestBody @Valid LoanApplication loanApplication) throws InvalidLoanApplicationException {
 		return new ResponseEntity<>(loanApplicationService.updateLoanApplication(loanApplicationId,loanApplication), HttpStatus.OK);
 	}
@@ -163,7 +170,7 @@ public class AdminController {
 		return new ResponseEntity<>(adminService.isValidAdmin(username, password),HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "DELETE mapping to add new user as admin to the LOAN_USER table in the Database", response = Admin.class)
+	@ApiOperation(value = "DELETE mapping to  user as admin to the LOAN_USER table in the Database", response = Admin.class)
 	@DeleteMapping("/deletecustomer/{userId}")
 	public ResponseEntity<Customer> deleteCustomer(@PathVariable int userId) throws CustomerNotFoundException{
 		return new ResponseEntity<>(customerService.deleteCustomer(userId),HttpStatus.OK);
@@ -181,12 +188,12 @@ public class AdminController {
 		return new ResponseEntity<>(loanAgreementService.deleteLoanAgreement(loanAgreementId), HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "GET mapping to view all customers by date of application", response = List.class )
-	@GetMapping("/viewbydate/{date}")
-	public List<Customer> viewCustomerApplicationList(@PathVariable("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateOfApplication){
-		return this.viewCustomerApplicationList(dateOfApplication);
+//	@ApiOperation(value = "GET mapping to view all customers by date of application", response = List.class )
+//	@GetMapping("/viewbydate/{date}")
+//	public List<Customer> viewCustomerApplicationList(@PathVariable("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateOfApplication){
+//		return this.viewCustomerApplicationList(dateOfApplication);
 		
-	}
+//	}
 
 }
 //By Blesy Helen
