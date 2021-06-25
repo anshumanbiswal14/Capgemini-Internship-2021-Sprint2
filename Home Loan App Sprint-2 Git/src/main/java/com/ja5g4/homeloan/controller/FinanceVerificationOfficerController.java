@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.util.List;  
+import java.util.List;   
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ja5g4.homeloan.entities.Admin;
-import com.ja5g4.homeloan.entities.FinanceVerificationOfficer;
 import com.ja5g4.homeloan.entities.LoanApplication;
 import com.ja5g4.homeloan.exception.FinanceVerificationException;
 import com.ja5g4.homeloan.exception.InvalidLoanApplicationException;

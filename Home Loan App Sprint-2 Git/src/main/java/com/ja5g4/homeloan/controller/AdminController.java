@@ -1,6 +1,6 @@
 package com.ja5g4.homeloan.controller;
 
-import java.time.LocalDate; 
+import java.time.LocalDate;  
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +36,6 @@ import com.ja5g4.homeloan.service.IAdminService;
 import com.ja5g4.homeloan.service.IFinanceVerificationService;
 import com.ja5g4.homeloan.service.ILandVerificationService;
 import com.ja5g4.homeloan.service.ILoanApplicationService;
-import com.ja5g4.homeloan.service.LandVerificationService;
 import com.ja5g4.homeloan.service.LoanAgreementService;
 
 import io.swagger.annotations.ApiModel;
@@ -188,12 +187,12 @@ public class AdminController {
 		return new ResponseEntity<>(loanAgreementService.deleteLoanAgreement(loanAgreementId), HttpStatus.OK);
 	}
 	
-//	@ApiOperation(value = "GET mapping to view all customers by date of application", response = List.class )
-//	@GetMapping("/viewbydate/{date}")
-//	public List<Customer> viewCustomerApplicationList(@PathVariable("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateOfApplication){
-//		return this.viewCustomerApplicationList(dateOfApplication);
+	@ApiOperation(value = "GET mapping to view all customers by date of application", response = List.class )
+	@GetMapping("/viewbydate/{date}")
+	public List<Customer> viewCustomerApplicationList(@PathVariable("date") @DateTimeFormat(pattern="yyyy-MM-dd") LocalDate dateOfApplication){
+		return this.viewCustomerApplicationList(dateOfApplication);
 		
-//	}
+	}
 
 }
 //By Blesy Helen
