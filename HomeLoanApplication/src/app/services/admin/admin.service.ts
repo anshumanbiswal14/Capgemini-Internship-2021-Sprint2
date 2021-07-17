@@ -9,15 +9,15 @@ import { LandVerificationOfficer } from 'src/app/models/LandOfficer';
   providedIn: 'root'
 })
 export class AdminService {
-  url: string = 'http://localhost:8095/homeloan/admin';
-  private baseURL = 'http://localhost:8095/homeloan/admin/LoanApplications';
-  private updateURL = 'http://localhost:8095/homeloan/admin/updateAdminVerificationStatus/';
-  private deleteURL = "http://localhost:8095/homeloan/admin/deleteCustomer/";
-  private addLandURL = "http://localhost:8095/homeloan/admin/addLandOfficer";
-  private addFinanceURL = "http://localhost:8095/homeloan/admin/addFinanceOfficer";
-  private addAdminURL = "http://localhost:8095/homeloan/admin/addAdmin";
-  private viewAllAdminURL = "http://localhost:8095/homeloan/admin/Admins";
-  private allCustURL = 'http://localhost:8095/homeloan/admin/customers';
+  url: string = 'http://localhost:9090/admin';
+  private baseURL = 'http://localhost:9090/admin';
+  private updateURL = 'http://localhost:9090/homeloan/admin/updateadminverificationstatus/';
+  private deleteURL = "http://localhost:9090/homeloan/admin/deletecustomer/";
+  private addLandURL = "http://localhost:9090/homeloan/admin/addlandofficer";
+  private addFinanceURL = "http://localhost:9090/homeloan/admin/addfinanceofficer";
+  private addAdminURL = "http://localhost:9090/admin/addadmin";
+  private viewAllAdminURL = "http://localhost:9090/homeloan/admin/admins";
+  private allCustURL = 'http://localhost:9090/homeloan/admin/customers';
 
   constructor(private http: HttpClient) { }
 
