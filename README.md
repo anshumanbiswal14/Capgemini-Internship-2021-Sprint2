@@ -1,5 +1,5 @@
 # Capgemini-Internship-2021-Sprint2
-Sprint 1 Java Full Stack Project : Home Loan Application
+Sprint 2 Java Full Stack Project : Home Loan Application
 
 About the project:-
 
